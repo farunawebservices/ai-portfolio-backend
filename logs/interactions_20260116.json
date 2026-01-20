@@ -1,0 +1,52 @@
+[
+  {
+    "timestamp": "2026-01-16T21:27:28.969836",
+    "session_id": "e3159ae8-0a85-4331-a938-71a9b26ac91d",
+    "mode": "default",
+    "question": "Tell me about the Igala project",
+    "answer": "My Igala Low-Resource Language Dataset Explorer project is something I'm particularly proud of, as it directly addresses the underrepresentation of African languages in NLP research. I was able to collect and curate over 3,200 field-collected Igala sentences, performing thorough auditing and linguistic analysis using tools like Pandas and Streamlit. This dataset is now the first comprehensive NLP resource available for Igala, deployed publicly on Hugging Face to support future community-driven research efforts.",
+    "error": null,
+    "response_time_seconds": 1.79,
+    "model": "models/gemini-flash-lite-latest"
+  },
+  {
+    "timestamp": "2026-01-16T22:35:02.446973",
+    "session_id": "e3159ae8-0a85-4331-a938-71a9b26ac91d",
+    "mode": "default",
+    "question": "tell me about igala gpt from sracth project you have done on this portfolio?",
+    "answer": "That's a great question, though I think there might be a slight mix-up with the naming! While I have built a comprehensive dataset for the Igala language, I haven't detailed an \"Igala GPT from scratch\" project in this specific portfolio section. My current focus for Igala is providing that foundational, high-quality dataset\u2014the **Igala Low-Resource Language Dataset Explorer**\u2014which is essential for others to eventually train advanced models like GPTs efficiently. For now, the goal has been establishing that critical first resource using Python and Streamlit to make the existing data accessible.",
+    "error": null,
+    "response_time_seconds": 1.85,
+    "model": "models/gemini-flash-lite-latest"
+  },
+  {
+    "timestamp": "2026-01-16T22:51:42.535832",
+    "session_id": "e3159ae8-0a85-4331-a938-71a9b26ac91d",
+    "mode": "default",
+    "question": "tell me about your NMT project?",
+    "answer": "That's a great question! My Igala-English Neural Machine Translation project is something I'm particularly proud of. Since Igala is a low-resource language, this was the first publicly available MT system for it, built by fine-tuning mBERT on about 3,200 parallel sentences I collected. It offers real-time, bidirectional translation and even includes a confidence scoring feature to let users know how reliable the output is. You can actually try it out live on Hugging Face if you'd like to see it in action!",
+    "error": null,
+    "response_time_seconds": 2.05,
+    "model": "models/gemini-flash-lite-latest"
+  },
+  {
+    "timestamp": "2026-01-16T22:52:52.278871",
+    "session_id": "e3159ae8-0a85-4331-a938-71a9b26ac91d",
+    "mode": "default",
+    "question": "okay what about the igala gpt app?",
+    "answer": "That's an excellent follow-up; the Igala GPT from Scratch project really pushes the boundaries for low-resource NLP. This project involved building a complete decoder-only transformer model entirely from first principles, meaning I implemented the architecture and custom BPE tokenizer without relying on any pre-trained weights. It\u2019s significant because it demonstrates that we can create foundational language models for resource-scarce languages like Igala using only a small, locally sourced corpus of about 268KB. It\u2019s fully deployed on Hugging Face if you want to interact with the resulting model!",
+    "error": null,
+    "response_time_seconds": 1.35,
+    "model": "models/gemini-flash-lite-latest"
+  },
+  {
+    "timestamp": "2026-01-16T22:53:56.503431",
+    "session_id": "e3159ae8-0a85-4331-a938-71a9b26ac91d",
+    "mode": "default",
+    "question": "tell me about your self?",
+    "answer": "That's a kind request! In short, I'm Faruna Godwin Abuh, an AI Research Engineer deeply committed to making advanced AI responsible and accessible. My core focus areas are AI safety, interpretability, and crucially, bringing NLP tools to under-represented African languages like Igala. I believe strongly in transparency, which is why all my work, from building the first Igala GPT to developing adversarial testing frameworks, is publicly deployed for the community. Ultimately, my goal is to bridge the gap between cutting-edge AI research and practical, impactful applications for African communities.",
+    "error": null,
+    "response_time_seconds": 1.36,
+    "model": "models/gemini-flash-lite-latest"
+  }
+]

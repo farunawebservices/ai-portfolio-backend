@@ -1,6 +1,24 @@
-.env
+# Python
 __pycache__/
-*.pyc
-logs/
-.vscode/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
 venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
