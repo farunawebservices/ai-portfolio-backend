@@ -24,7 +24,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+# CORRECT (old SDK):
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 MODEL_NAME = "models/gemini-flash-lite-latest"
 
 LOGS_DIR = Path("logs")
