@@ -24,9 +24,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# CORRECT (old SDK):
+# Configure Gemini API
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 MODEL_NAME = "models/gemini-flash-lite-latest"
+model = genai.GenerativeModel(MODEL_NAME)
 
 LOGS_DIR = Path("logs")
 LOGS_DIR.mkdir(exist_ok=True)
@@ -44,13 +45,13 @@ You are Godwin's AI Portfolio Assistant. Answer questions about his 7 AI/ML proj
 
 1. Red-Teaming LLMs for AI Safety - Automated adversarial testing framework for LLM vulnerabilities (prompt injection, jailbreaks). Tests 5+ attack categories with safety scoring. Coming soon to HuggingFace.
 
-2. Igala-English Neural Machine Translation - First publicly available Igala MT system. Fine-tuned mBERT on 3,253 parallel sentences. Real-time bidirectional translation with confidence scoring. Live at: https://huggingface.co/spaces/Faruna01/igala-nmt-translator
+2. Igala-English Neural Machine Translation - First publicly available Igala MT system. Fine-tuned mBERT on 3,253 parallel sentences. Real-time bidirectional translation with confidence scoring. Live at: [https://huggingface.co/spaces/Faruna01/igala-nmt-translator](https://huggingface.co/spaces/Faruna01/igala-nmt-translator)
 
-3. **Mechanistic Interpretability Analysis** - Deep dive into mBERT attention patterns during Igala translation. Visualizes 12 layers × 12 heads with interactive Plotly heatmaps. Reveals how transformers handle tonal languages. Live at: https://huggingface.co/spaces/Faruna01/igala-mbert-interpretability
+3. **Mechanistic Interpretability Analysis** - Deep dive into mBERT attention patterns during Igala translation. Visualizes 12 layers × 12 heads with interactive Plotly heatmaps. Reveals how transformers handle tonal languages. Live at: [https://huggingface.co/spaces/Faruna01/igala-mbert-interpretability](https://huggingface.co/spaces/Faruna01/igala-mbert-interpretability)
 
-4. Igala GPT from Scratch - Decoder-only transformer built from first principles (no pretrained models). Custom BPE tokenizer, multi-head attention implementation. Trained on 268KB Igala corpus. Live at: https://huggingface.co/spaces/Faruna01/igala-gpt-from-scratch
+4. Igala GPT from Scratch - Decoder-only transformer built from first principles (no pretrained models). Custom BPE tokenizer, multi-head attention implementation. Trained on 268KB Igala corpus. Live at: [https://huggingface.co/spaces/Faruna01/igala-gpt-from-scratch](https://huggingface.co/spaces/Faruna01/igala-gpt-from-scratch)
 
-5. Igala Dataset Explorer - 3,253 field-collected Igala-English sentence pairs. First comprehensive Igala NLP dataset. Interactive Streamlit app for researchers. Live at: https://huggingface.co/spaces/Faruna01/igala-streamlit-app-02
+5. Igala Dataset Explorer - 3,253 field-collected Igala-English sentence pairs. First comprehensive Igala NLP dataset. Interactive Streamlit app for researchers. Live at: [https://huggingface.co/spaces/Faruna01/igala-streamlit-app-02](https://huggingface.co/spaces/Faruna01/igala-streamlit-app-02)
 
 6. AI Safety & Calibration - GPT-2 calibration improvements (+15%). Direct Logit Attribution analysis. Selective prediction and abstention methods for reliable AI.
 
@@ -278,19 +279,11 @@ def ask_portfolio(q: Question):
         # Build prompt with history and mode
         prompt = build_prompt_with_history(q.question, mode, session_id)
 
-        response = client.models.generate_content(
-            model=MODEL_NAME,
-            contents=prompt,
-        )
+        #  'model' 
+        response = model.generate_content(prompt)
 
         # Extract answer
-        answer = None
-        if hasattr(response, 'text'):
-            answer = response.text
-        elif hasattr(response, 'candidates'):
-            answer = response.candidates[0].content.parts[0].text
-        else:
-            answer = "I couldn't generate a response. Please try again."
+        answer = response.text if hasattr(response, 'text') else "I couldn't generate a response. Please try again."
         
         # Store in conversation history
         conversations[session_id].append({"role": "user", "content": q.question})
